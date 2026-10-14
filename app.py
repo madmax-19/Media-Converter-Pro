@@ -140,6 +140,7 @@ def _download_sync(task_id: str, url: str, fmt: str, quality: str, loop: asyncio
                 notify_task(task_id, status="processing", progress=99, message="Processing media…"), loop
             )
 
+
     common: dict[str, Any] = {
         "outtmpl": str(task_dir / "%(title).120B [%(id)s].%(ext)s"),
         "noplaylist": True,
@@ -153,7 +154,13 @@ def _download_sync(task_id: str, url: str, fmt: str, quality: str, loop: asyncio
         "retries": 3,
         "fragment_retries": 3,
         "socket_timeout": 25,
+
+        # Explicitly configure Node.js for yt-dlp
+        "js_runtimes": {
+            "node": {}
+        },
     }
+
 
     if fmt == "mp4":
         if quality == "best":
