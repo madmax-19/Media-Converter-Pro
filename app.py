@@ -142,24 +142,23 @@ def _download_sync(task_id: str, url: str, fmt: str, quality: str, loop: asyncio
 
 
     common: dict[str, Any] = {
-        "outtmpl": str(task_dir / "%(title).120B [%(id)s].%(ext)s"),
-        "noplaylist": True,
-        "quiet": True,
-        "no_warnings": True,
-        "restrictfilenames": True,
-        "windowsfilenames": True,
-        "overwrites": False,
-        "progress_hooks": [progress_hook],
-        "continuedl": True,
-        "retries": 3,
-        "fragment_retries": 3,
-        "socket_timeout": 25,
-
-        # Explicitly configure Node.js for yt-dlp
-        "js_runtimes": {
-            "node": {}
-        },
-    }
+    "outtmpl": str(task_dir / "%(title).120B [%(id)s].%(ext)s"),
+    "noplaylist": True,
+    "quiet": False,
+    "verbose": True,
+    "no_warnings": False,
+    "restrictfilenames": True,
+    "windowsfilenames": True,
+    "overwrites": False,
+    "progress_hooks": [progress_hook],
+    "continuedl": True,
+    "retries": 3,
+    "fragment_retries": 3,
+    "socket_timeout": 25,
+    "js_runtimes": {
+        "node": {}
+    },
+}
 
 
     if fmt == "mp4":
