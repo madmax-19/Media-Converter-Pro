@@ -1,10 +1,11 @@
 
 FROM python:3.12-slim
 
-# Install system dependencies, Node.js 22, and FFmpeg
+# Install required system tools, including GPG and FFmpeg
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
+    gnupg \
     ffmpeg \
     && install -d /etc/apt/keyrings \
     && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
@@ -24,17 +25,17 @@ RUN curl -fsSL https://deno.land/install.sh | sh
 # Set application directory
 WORKDIR /app
 
-# Copy dependency list and install Python packages
+# Install Python dependencies
 COPY requirements.txt .
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
     && python -m pip install --no-cache-dir -r requirements.txt \
     && python -m pip install --no-cache-dir --upgrade "yt-dlp[default]"
 
-# Copy the application
+# Copy application files
 COPY . .
 
-# Render supplies PORT; use 10000 as a local/default fallback
+# Start FastAPI
 EXPOSE 10000
 
 CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-10000}"]
