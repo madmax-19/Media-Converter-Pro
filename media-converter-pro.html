@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b13">
+  <meta name="description" content="Media Converter Pro — a FastAPI, yt-dlp and FFmpeg project case study.">
+  <title>Media Converter Pro — Project Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#080a12;--panel:#101522;--line:#242c40;--muted:#9ba7bc;--text:#f3f6ff;--accent:#8b7cff;--cyan:#5ce1e6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#27204e 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}.top{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid #ffffff12;font:12px 'DM Mono',monospace;letter-spacing:.08em}.brand{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;letter-spacing:.02em}.brand span{color:var(--cyan)}.back{color:var(--muted)}.hero{padding:92px 0 62px;max-width:850px}.eyebrow{font:12px 'DM Mono',monospace;color:var(--cyan);letter-spacing:.16em;text-transform:uppercase}.hero h1{font:clamp(42px,8vw,82px)/1.02 'Space Grotesk',sans-serif;letter-spacing:-.055em;margin:22px 0}.hero h1 em{font-style:normal;color:var(--accent)}.lead{max-width:700px;color:#b7c0d2;font-size:18px}.tags{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0}.tag{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:11px 'DM Mono',monospace;color:#dce2f2}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 17px;border-radius:10px;background:var(--accent);font-weight:700;font-size:13px}.btn.secondary{background:#ffffff08;border:1px solid var(--line)}.preview{border:1px solid #ffffff20;background:linear-gradient(140deg,#151a2b,#0b0e17);border-radius:22px;padding:clamp(20px,5vw,48px);box-shadow:0 30px 100px #0008;overflow:hidden}.preview-top{display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:22px}.preview-top strong{font:700 14px 'Space Grotesk',sans-serif}.pill{font:10px 'DM Mono',monospace;color:var(--cyan);border:1px solid #5ce1e644;padding:5px 9px;border-radius:99px}.mock-title{font:clamp(30px,5vw,52px)/1.1 'Space Grotesk',sans-serif;margin:32px 0 10px}.mock-title span{color:var(--accent)}.mock-copy{color:var(--muted);max-width:560px}.mock-input{margin-top:28px;border:1px solid #303951;background:#080b13;border-radius:10px;padding:16px;color:#7f8aa2;font:12px 'DM Mono',monospace}.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.mock-option{border:1px solid #303951;background:#080b13;border-radius:10px;padding:12px 14px;font-size:12px;color:#b8c2d5}.mock-cta{margin-top:14px;padding:15px;border-radius:10px;background:linear-gradient(100deg,#7968f8,#4c9be9);text-align:center;font:700 12px 'DM Mono',monospace;letter-spacing:.08em}.section{padding:78px 0;border-bottom:1px solid #ffffff12}.section h2{font:clamp(28px,4vw,42px)/1.15 'Space Grotesk',sans-serif;letter-spacing:-.035em;margin:12px 0 22px}.section p{color:#b1bbce;max-width:780px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.tile{background:#ffffff05;border:1px solid var(--line);border-radius:15px;padding:22px}.tile .num{font:12px 'DM Mono',monospace;color:var(--cyan)}.tile h3{font:700 16px 'Space Grotesk',sans-serif;margin:13px 0 7px}.tile p{font-size:13px;margin:0;color:var(--muted)}.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:25px 0}.node{padding:12px 14px;background:#151a2b;border:1px solid #343b54;border-radius:10px;font:12px 'DM Mono',monospace}.arrow{color:var(--cyan)}.stack{display:flex;gap:10px;flex-wrap:wrap}.stack span{padding:10px 13px;border-radius:8px;background:#17172b;border:1px solid #373254;font-size:13px}.note{border-left:3px solid var(--cyan);padding:14px 18px;background:#5ce1e609;color:#c4ccdc;margin-top:22px}.footer{padding:30px 0;color:#78849b;font:11px 'DM Mono',monospace;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:700px){.hero{padding:65px 0 45px}.grid{grid-template-columns:1fr}.mock-row{grid-template-columns:1fr}.preview-top{align-items:flex-start;flex-direction:column}.section{padding:55px 0}.wrap{width:min(100% - 28px,1100px)}}
+  </style>
+</head>
+<body>
+  <header class="wrap top"><a class="brand" href="#">MEDIA <span>CONVERTER PRO</span></a><a class="back" href="../index.html">← Back to portfolio</a></header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">PROJECT CASE STUDY / 001</div>
+      <h1>From media link<br>to <em>ready-to-use file.</em></h1>
+      <p class="lead">A full-stack media conversion web application built with FastAPI, yt-dlp and FFmpeg. It provides a focused interface for converting supported public media into MP4 video or MP3 audio, with live task progress.</p>
+      <div class="tags"><span class="tag">PYTHON</span><span class="tag">FASTAPI</span><span class="tag">YT-DLP</span><span class="tag">FFMPEG</span><span class="tag">JAVASCRIPT</span><span class="tag">WEBSOCKETS</span></div>
+      <div class="hero-actions"><a class="btn" href="#overview">Explore project ↓</a><a class="btn secondary" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub link placeholder ↗</a></div>
+    </section>
+    <section class="preview" aria-label="Interface preview mockup">
+      <div class="preview-top"><strong>MEDIA CONVERTER PRO <span style="color:#8b7cff">/</span> CONVERSION WORKSPACE</strong><span class="pill">● INTERFACE PREVIEW</span></div>
+      <div class="mock-title">Bring a link.<br><span>Take a file.</span></div>
+      <p class="mock-copy">Paste a supported public media URL, select an output format and quality, then track the conversion until the file is ready.</p>
+      <div class="mock-input">↗ &nbsp; Paste your media link here…</div>
+      <div class="mock-row"><div class="mock-option">OUTPUT FORMAT &nbsp; · &nbsp; MP4 Video⌄</div><div class="mock-option">QUALITY &nbsp; · &nbsp; Best available⌄</div></div>
+      <div class="mock-cta">↗ &nbsp; CONVERT / DOWNLOAD &nbsp; →</div>
+    </section>
+    <section class="section" id="overview"><div class="eyebrow">01 / OVERVIEW</div><h2>A practical full-stack workflow</h2><p>Media Converter Pro connects a responsive browser interface to a Python backend. The backend validates the submitted URL, creates a task, delegates media processing to yt-dlp and FFmpeg, and returns a task-specific download when processing succeeds.</p>
+      <div class="grid">
+        <article class="tile"><span class="num">FEATURE / 01</span><h3>MP4 video output</h3><p>Choose best available or a target resolution up to 1080p when the source provides it.</p></article>
+        <article class="tile"><span class="num">FEATURE / 02</span><h3>MP3 audio output</h3><p>Extract audio and encode it to MP3 with a selectable bitrate.</p></article>
+        <article class="tile"><span class="num">FEATURE / 03</span><h3>Live progress</h3><p>WebSocket updates with a REST status endpoint as a fallback.</p></article>
+        <article class="tile"><span class="num">FEATURE / 04</span><h3>Responsive interface</h3><p>Compact form controls, progress feedback and clear success/error states.</p></article>
+        <article class="tile"><span class="num">FEATURE / 05</span><h3>Task-specific files</h3><p>Each task has its own output directory and a task-ID download route.</p></article>
+        <article class="tile"><span class="num">FEATURE / 06</span><h3>Input validation</h3><p>Accepts supported YouTube and Instagram hostnames and validates requested output settings.</p></article>
+      </div>
+    </section>
+    <section class="section"><div class="eyebrow">02 / ARCHITECTURE</div><h2>How the system works</h2><div class="flow"><span class="node">Browser UI</span><span class="arrow">→</span><span class="node">FastAPI API</span><span class="arrow">→</span><span class="node">yt-dlp</span><span class="arrow">→</span><span class="node">FFmpeg</span><span class="arrow">→</span><span class="node">Download</span></div><p>JavaScript sends a conversion request to <code>/convert</code>. The API returns a task ID. The interface listens to <code>/ws/{task_id}</code> for progress and can poll <code>/status/{task_id}</code> if the socket is unavailable. Completed files are served through <code>/download/{task_id}</code>.</p></section>
+    <section class="section"><div class="eyebrow">03 / TECHNOLOGY</div><h2>Built with a focused stack</h2><div class="stack"><span>Python 3.10+</span><span>FastAPI</span><span>Uvicorn</span><span>yt-dlp</span><span>FFmpeg</span><span>Jinja2</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>WebSockets</span></div></section>
+    <section class="section"><div class="eyebrow">04 / ENGINEERING NOTES</div><h2>Reliability and responsible use</h2><p>The project includes bounded task concurrency, URL and format validation, task-scoped output folders, status polling fallback, clear failure messages, and best-effort cleanup of older output folders. In-memory tasks are intended for a single-process demo and are not a durable distributed job queue.</p><div class="note">Use only for media you own or have permission to download. Respect the source platform's terms and copyright. Private or login-gated media is not supported by default.</div></section>
+    <section class="section"><div class="eyebrow">05 / DEPLOYMENT</div><h2>Designed for a Python host</h2><p>The interactive converter requires a Python ASGI host and FFmpeg installed on the server. A static portfolio host such as GitHub Pages can display this case-study page, but it cannot run the FastAPI conversion backend. Deploy the backend separately and connect the portfolio's project link to this page or to the live application.</p></section>
+  </main>
+  <footer class="wrap footer"><span>MEDIA CONVERTER PRO · PROJECT CASE STUDY</span><span>FASTAPI · YT-DLP · FFMPEG</span></footer>
+</body>
+</html>
