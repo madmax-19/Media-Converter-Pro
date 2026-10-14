@@ -288,11 +288,14 @@ async def diagnostics():
             return str(exc)
 
     return {
-        "node_version": check(["node", "--version"]),
-        "yt_dlp_version": check([
-            "python", "-m", "pip", "show", "yt-dlp"
-        ]),
-    }
+    "node_version": check(["node", "--version"]),
+    "yt_dlp_version": check([
+        "python", "-m", "pip", "show", "yt-dlp"
+    ]),
+    "yt_dlp_ejs": check([
+        "python", "-m", "pip", "show", "yt-dlp-ejs"
+    ]),
+}
 
 
 
