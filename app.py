@@ -271,6 +271,31 @@ async def health():
     return {"status": "ok", "ffmpeg_available": shutil.which("ffmpeg") is not None}
 
 
+@app.get("/diagnostics")
+async def diagnostics():
+    import subprocess
+
+    def check(command):
+        try:
+            result = subprocess.run(
+                command,
+                capture_output=True,
+                text=True,
+                timeout=10,
+            )
+            return result.stdout.strip() or result.stderr.strip()
+        except Exception as exc:
+            return str(exc)
+
+    return {
+        "node_version": check(["node", "--version"]),
+        "yt_dlp_version": check([
+            "python", "-m", "pip", "show", "yt-dlp"
+        ]),
+    }
+
+
+
 @app.post("/convert")
 async def convert(payload: ConvertRequest):
     url = validate_media_url(payload.url)
