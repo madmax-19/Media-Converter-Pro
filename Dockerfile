@@ -23,7 +23,7 @@ COPY requirements.txt .
 
 RUN python -m pip install --upgrade pip \
     && python -m pip install -r requirements.txt \
-    && python -m pip install --upgrade --pre "yt-dlp[default]"
+    && python -m pip install --upgrade "yt-dlp[default]"
 
 COPY . .
 
