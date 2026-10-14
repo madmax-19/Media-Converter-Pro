@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b13">
+  <title>Media Converter Pro</title>
+  <link rel="icon" href="/static/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Media Converter Pro home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/><path d="M3.5 4.5v15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+      <span>MEDIA <b>CONVERTER PRO</b></span>
+    </a>
+    <div class="top-meta"><span class="status-dot"></span> ONLINE CONVERTER <i></i> MP4 / MP3</div>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <div class="eyebrow"><span>FAST MEDIA WORKFLOW</span><span class="eyebrow-line"></span><span>01 / CONVERT</span></div>
+      <h1>Bring a link.<br><em>Take a file.</em></h1>
+      <p class="intro-copy">Convert publicly accessible media into a format that fits your workflow. Paste a supported YouTube or Instagram URL, choose your output, and download when it's ready.</p>
+      <div class="trust-row"><span><b>01</b> Paste URL</span><span><b>02</b> Choose format</span><span><b>03</b> Download</span></div>
+    </section>
+
+    <section class="converter-card" aria-labelledby="converter-title">
+      <div class="card-head">
+        <div><span class="card-kicker">MEDIA TOOL / 001</span><h2 id="converter-title">Start a conversion</h2></div>
+        <span class="ready-pill"><span class="status-dot"></span> READY</span>
+      </div>
+
+      <form id="convertForm" novalidate>
+        <label class="field-label" for="urlInput">SOURCE URL <span>YOUTUBE / INSTAGRAM</span></label>
+        <div class="url-field">
+          <span class="link-icon" aria-hidden="true">↗</span>
+          <input id="urlInput" name="url" type="url" placeholder="Paste your media link here…" autocomplete="url" required maxlength="2048">
+          <button type="button" class="paste-btn" id="pasteBtn">PASTE</button>
+        </div>
+        <p class="input-hint">Use a complete link to public media you have permission to download.</p>
+
+        <div class="options-grid">
+          <div class="option-group">
+            <label class="field-label" for="formatSelect">OUTPUT FORMAT</label>
+            <div class="select-wrap"><select id="formatSelect" name="format"><option value="mp4">MP4 · Video</option><option value="mp3">MP3 · Audio</option></select><span aria-hidden="true">⌄</span></div>
+          </div>
+          <div class="option-group">
+            <label class="field-label" for="qualitySelect">QUALITY</label>
+            <div class="select-wrap"><select id="qualitySelect" name="quality"><option value="best">Best available</option><option value="1080">1080p</option><option value="720">720p</option><option value="480">480p</option><option value="360">360p</option></select><span aria-hidden="true">⌄</span></div>
+          </div>
+        </div>
+
+        <button class="convert-btn" id="convertBtn" type="submit"><span class="convert-icon">↗</span><span id="convertLabel">CONVERT / DOWNLOAD</span><span class="btn-arrow">→</span></button>
+        <p class="legal-note">Only download content you own or are authorized to use. Platform restrictions may apply.</p>
+      </form>
+
+      <section class="progress-panel" id="progressContainer" aria-live="polite" hidden>
+        <div class="progress-top"><div><span class="card-kicker">TASK STATUS</span><h3 id="statusText">Preparing…</h3></div><strong id="progressPercent">0%</strong></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+        <p class="progress-message" id="progressMessage">Connecting to the server…</p>
+        <div class="result-row" id="resultContainer" hidden><div class="result-file"><span class="file-icon">↓</span><div><b id="resultFilename">Your file is ready</b><small>Conversion complete</small></div></div><a class="download-btn" id="downloadBtn" href="#">DOWNLOAD <span>↘</span></a></div>
+        <div class="error-box" id="errorContainer" hidden></div>
+      </section>
+    </section>
+
+    <section class="capabilities" aria-label="Supported features">
+      <div><span class="cap-icon">▣</span><div><b>MP4 VIDEO</b><small>Quality options when available</small></div></div>
+      <div><span class="cap-icon">♫</span><div><b>MP3 AUDIO</b><small>Audio extraction with FFmpeg</small></div></div>
+      <div><span class="cap-icon">⌁</span><div><b>LIVE PROGRESS</b><small>Updates while processing</small></div></div>
+    </section>
+  </main>
+
+  <footer class="footer"><span>MEDIA CONVERTER PRO <i>©</i> 2026</span><span>FASTAPI <i>·</i> YT-DLP <i>·</i> FFMPEG</span></footer>
+</body>
+</html>
